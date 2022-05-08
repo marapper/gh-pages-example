@@ -1,0 +1,26 @@
+name: gh-page CI
+on:
+  push:
+    branches:
+      - main # на какой ветке будет деплой
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set-up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      # раздельные операции - зависимости / сборка / (например, тесты)
+      - run: npm ci
+      - run: npm run build
+      - name: Deploy
+        uses: crazy-max/ghaction-github-pages@v1
+        with:
+          target_branch: gh-pages # в какую ветку
+          build_dir: dist # файлы из какой папки
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # стандартный токен
