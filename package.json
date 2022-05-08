@@ -1,0 +1,24 @@
+{
+  "name": "gh-pages-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mkdir -p dist && cp index.js dist/index.js",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marapper/gh-pages-example.git"
+  },
+  "author": "marapper <msnre@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marapper/gh-pages-example/issues"
+  },
+  "homepage": "https://github.com/marapper/gh-pages-example#readme",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
